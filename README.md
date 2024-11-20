@@ -4,6 +4,7 @@
 
 This repository presents a machine learning algorithm that predicts anti-cancer peptides.
 
+Published Paper: https://arxiv.org/submit/6012816/view
 ## Install
 
 Pip
