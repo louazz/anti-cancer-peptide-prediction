@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-class AutoEncoder(nn.Module):
+class Block(nn.Module):
     def __init__(self, in_channel):
         super().__init__()
 
@@ -36,7 +36,7 @@ class NeuralNetwork(nn.Module):
 
         self.dropout = nn.Dropout(0.3)
 
-        self.autoencoder = AutoEncoder(input_features)
+        self.block = Block(input_features)
 
         self.fc3 = nn.Linear(110, 55)
         self.bn3 = nn.BatchNorm1d(55)
@@ -58,7 +58,7 @@ class NeuralNetwork(nn.Module):
         x = self.bn2(x)
         x = self.elu2(x)
 
-        y = self.autoencoder(inputs)
+        y = self.block(inputs)
 
         x = torch.cat([x, y], axis=1)
 
